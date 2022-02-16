@@ -40,7 +40,7 @@
 	<body>
 
 		<nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home.php">
         <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
@@ -67,6 +67,13 @@
     						
     							$chamado_dados = explode('#', $chamado);
 
+    							//Exibir apenas os chamados criados pelo próprio Usuário (Não administrador)
+    							if ($_SESSION['perfil_id'] == 2) {
+    								if ($_SESSION['id'] != $chamado_dados[0]) {
+    									continue;
+    								}
+    							}
+
     							if (count($chamado_dados) < 3) {
     								continue;
     							}
@@ -75,9 +82,9 @@
 
     						<div class="card mb-3 bg-light">
 	    						<div class="card-body">
-	    							<h5 class="card-title"><?=$chamado_dados[0]?></h5>
-	    							<h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1]?></h6>
-	    							<p class="card-text"><?=$chamado_dados[2]?></p>
+	    							<h5 class="card-title"><?=$chamado_dados[1]?></h5>
+	    							<h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6>
+	    							<p class="card-text"><?=$chamado_dados[3]?></p>
 	    						</div>
 	    					</div> 
    

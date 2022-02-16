@@ -1,15 +1,14 @@
 <?php
 
-	print_r($_POST);
+	session_start();
 
 	//Montagem do texto a ser escrito
-
 	$titulo = str_replace('#', '-', $_POST['titulo']);
 	$categoria = str_replace('#', '-', $_POST['categoria']);
 	$descricao = str_replace('#', '-', $_POST['descricao']);
 
 	//EOL = End of line
-	$texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
+	$texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
 
 
 	//Função nativa do PHP para abrir arquivo

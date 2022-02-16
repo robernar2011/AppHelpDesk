@@ -12,7 +12,7 @@
 
 
 	//Função nativa do PHP para abrir arquivo
-	$arquivo = fopen('arquivo.hd', 'a');
+	$arquivo = fopen('../../app_help_desk/arquivo.hd', 'a');
 
 	//Função para escrever arquivo
 	fwrite($arquivo, $texto);
